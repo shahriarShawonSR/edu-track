@@ -25,6 +25,9 @@ class AuthController extends Controller
             return redirect()->back()->with('error', 'Please enter currect email and password');
         }
     }
+    public function forgotPassword(){
+        return view('auth.forgot');
+    }
     public function logout()
     {
         Auth::logout();
