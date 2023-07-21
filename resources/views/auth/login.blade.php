@@ -24,7 +24,7 @@
                 <a href="#" class="h1"><b>Edu-Track</a>
             </div>
             <div class="card-body">
-                <p class="login-box-msg">Sign in to start your session</p>
+                <p class="login-box-msg">Login in to start your session</p>
                 @include('_message')
                 <form action="{{ url('login') }}" method="post">
                     {{ csrf_field() }}
