@@ -61,7 +61,7 @@
                     </div>
                 </form>
                 <p class="mb-1">
-                    <a href="{{ url('forgot-password') }}">I forgot my password</a>
+                    <a href="{{ url('forgot-password') }}">Forgot password</a>
                 </p>
             </div>
             <!-- /.card-body -->
