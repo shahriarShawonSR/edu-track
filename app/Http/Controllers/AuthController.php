@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Mail\ForgotPasswordMail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
+
 class AuthController extends Controller
 {
     public function login()
