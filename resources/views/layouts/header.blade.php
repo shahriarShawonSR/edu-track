@@ -140,8 +140,7 @@
                          </a>
                      </li>
                      <li class="nav-item">
-                         <a href="{{ url('admin/admin/list') }}" class="nav-link @if ( Request::segment(2) == 'admin') active
-
+                         <a href="{{ url('admin/list') }}" class="nav-link @if ( Request::segment(2) == 'admin') active
                          @endif">
                              <i class="nav-icon fa-solid fas fa-users"></i>
                              <p>
@@ -149,6 +148,15 @@
                              </p>
                          </a>
                      </li>
+                     <li class="nav-item">
+                        <a href="{{ url('admin/class/list') }}" class="nav-link @if ( Request::segment(2) == 'admin') active
+                        @endif">
+                            <i class="nav-icon fa-solid fas fa-users"></i>
+                            <p>
+                                Class
+                            </p>
+                        </a>
+                    </li>
                  @elseif(Auth::user()->user_type == 2)
                      <li class="nav-item">
                          <a href="{{ url('teacher/dashboard') }}" class="nav-link ">

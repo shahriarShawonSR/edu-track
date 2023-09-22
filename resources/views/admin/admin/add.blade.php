@@ -17,17 +17,27 @@
                     <div class="col-md-12">
                         <div class="card card-primary">
                             <form action="" method="POST">
-                                {{ csrf_field() }}
+                                {{-- {{ csrf_field() }} --}}
+                                @csrf
+                                @if ($errors->any())
+                                    {!! implode('', $errors->all('<div class="text-red">:message</div>')) !!}
+                                @endif
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Name</label>
-                                        <input type="text" class="form-control" id="nameId" name="name" required
-                                            placeholder="Enter name">
+                                        <label for="name">Name</label>
+                                        <input type="text" class="form-control" value="{{ old('name') }}"
+                                            id="name" name="name" placeholder="Enter name">
+                                        @error('name')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Email</label>
-                                        <input type="email" class="form-control" id="emailId" name="email" required
-                                            placeholder="Enter email">
+                                        <label for="email">Email</label>
+                                        <input type="email" class="form-control" value="{{ old('email') }}"
+                                            id="email" name="email" required placeholder="Enter email">
+                                        <div style="color: red">{{ $errors->first('email') }}</div>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Password</label>

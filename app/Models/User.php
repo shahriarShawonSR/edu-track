@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Request;
 
 class User extends Authenticatable
 {
@@ -25,10 +26,23 @@ class User extends Authenticatable
     ];
     static public function getAdmin()
     {
-        return self::select('users.*')
-            ->where('user_type', '=', 1)
-            ->orderBy('id', 'desc')
-            ->get();
+        $return = self::select('users.*')
+            ->where('user_type', 1)
+            ->where('is_delete', 0);
+            if(!empty(Request::input('name'))){
+                $return->where('name','like','%'.Request::input('name').'%');
+            }
+            if(!empty(Request::input('email'))){
+                $return->where('email','like','%'.Request::input('email').'%');
+            }
+
+        $return = $return->orderBy('id', 'ASC')
+            ->paginate(10);
+        return $return;
+    }
+    static public function getSingle($id)
+    {
+        return self::find($id);
     }
     static public function getEmailSingle($email)
     {

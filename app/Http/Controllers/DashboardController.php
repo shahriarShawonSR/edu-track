@@ -11,13 +11,13 @@ class DashboardController extends Controller
     {
         $data['header_title'] = 'Dashboard';
         if (Auth::user()->user_type == 1) {
-            return view('admin/dashboard', $data);
+            return view('admin.dashboard', $data);
         } elseif (Auth::user()->user_type == 2) {
-            return view('teacher/dashboard', $data);
+            return view('teacher.dashboard', $data);
         } elseif (Auth::user()->user_type == 3) {
-            return view('student/dashboard', $data);
+            return view('student.dashboard', $data);
         } elseif (Auth::user()->user_type == 4) {
-            return view('patent/dashboard', $data);
+            return view('patent.dashboard', $data);
         }
     }
 }

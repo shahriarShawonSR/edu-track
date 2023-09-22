@@ -5,7 +5,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Admin (Total : {{ $getUsers->total() }})</h1>
+                        <h1 class="m-0">Class</h1>
                     </div>
                     <div class="col-sm-6" style="text-align: right">
                         <a href="{{ url('/admin/add') }}" class="btn btn-primary">Add New</a>
@@ -34,7 +34,7 @@
                                 </div>
                                 <div class="form-group col-sm-3">
                                     <button class="btn btn-primary" type="submit" style="margin-top: 35px;">Search</button>
-                                    <a href="{{ url('admin/list') }}" class="btn btn-success" style="margin-top: 35px;">Reset</a>
+                                    <a href="{{ url('admin/class/list') }}" class="btn btn-success" style="margin-top: 35px;">Reset</a>
                                 </div>
                             </div>
                         </div>
@@ -49,7 +49,7 @@
                         @include('_message')
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Admin List</h3>
+                                <h3 class="card-title">Class List</h3>
                                 <div class="col-sm-6" style="text-align: right">
                                 </div>
                             </div>
@@ -58,17 +58,17 @@
                                     <thead>
                                         <tr>
                                             <th>SL. No</th>
-                                            <th>Name</th>
-                                            <th>Email</th>
+                                            <th>Class Name</th>
+                                            <th>Status</th>
+                                            <th>Craeted By</th>
                                             <th>Created Date</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($getUsers as $key => $getUser)
+                                        {{-- @foreach ($getUsers as $key => $getUser)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                {{-- <td>{{ ($getUser->currentpage()-1) * $getUser->perpage() + $key + 1 }}</td> --}}
                                                 <td>{{ $getUser->name }}</td>
                                                 <td>{{ $getUser->email }}</td>
                                                 <td>{{ $getUser->created_at->format('d-m-Y') }}</td>
@@ -79,11 +79,11 @@
                                                             class="fas fa-trash-alt" style="color:red !important;"></i></a>
                                                 </td>
                                             </tr>
-                                        @endforeach
+                                        @endforeach --}}
                                     </tbody>
                                 </table>
                                 <div style="padding: 10px; float: right;">
-                                    {!! $getUsers->appends(Illuminate\Support\Facades\Request::except('page'))->links() !!}
+
                                 </div>
                             </div>
                         </div>
